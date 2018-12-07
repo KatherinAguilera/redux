@@ -9,6 +9,14 @@ function handleSubmit(event) {
   const data = new FormData($form);
   const title = data.get('title');
   console.log(title);
+  store.dispatch({
+    // siempre deberá ser e ir un type es tipo de acción como desayunar correr etc 
+    type: 'ADD_SONG',
+    // payload o como se quiera definir
+    payload: {
+      title,
+    }
+  })
 }
 //lista objetos, variablesmapas etc
 const initialState = [
@@ -34,6 +42,7 @@ const store = createStore(
 )
 // de redux.html
 const $container = document.getElementById('playlist');
+// constante de estado store.metodo getState obtener la lista de informacion
 const playlist = store.getState();
 // Imprimir la iteracion de los datos
 playlist.forEach((item) => {
