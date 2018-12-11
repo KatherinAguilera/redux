@@ -14,8 +14,8 @@ const initialState = {
   data: {
     // ...descomponer es decir obtener todos los datos que hay dentro de data
     ...data,
-    search: [],
-  }
+  },
+  search: [],
 }
 // crear el store con sus tres parametros
 const store = createStore(

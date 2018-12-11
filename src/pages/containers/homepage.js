@@ -35,6 +35,8 @@ class HomePage extends Component {
         <Categories
           categories={this.props.categories}
           handleOpenModal={this.handleOpenModal}
+          // agregar propiedades
+          search={this.props.search}
         />
         {
         this.state.modalVisible &&
@@ -58,7 +60,8 @@ class HomePage extends Component {
 /***REDUX******/
 function mapStateToProps(state, props) {
   return {
-    categories: state.data.categories
+    categories: state.data.categories,
+    search: state.search
   }
 }
 export default connect(mapStateToProps)(HomePage)

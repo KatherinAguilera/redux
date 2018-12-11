@@ -13,12 +13,14 @@ function data(state, action) {
       //   search: results
       // }
       // FILTRAR DATOS CON MAP SIN IMPORTAR MAYUS
-      let results = []
-      state.data.categories.map((item)=>{
-        return  item.playlist.filter((item)=>{
-        return item.author.toLowerCase().includes(action.payload.query.toLowerCase()) && results.push(item)
+      let results = [];
+      if (action.payload.query){
+        state.data.categories.map((item)=>{
+          return  item.playlist.filter((item)=>{
+          return item.author.toLowerCase().includes(action.payload.query.toLowerCase()) && results.push(item)
+          })
         })
-      })
+      }
       return {
         ...state,
         search: results,
