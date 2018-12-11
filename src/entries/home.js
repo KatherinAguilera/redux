@@ -6,6 +6,7 @@ import data from '../api.json';
 // componente que permite la conexion de mi store con la ui (conexion datos)
 import  { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import reducer from '../reducers/data';
 /****REDUX ***************************************************************/
 // inicializar estado
 const initialState = {
@@ -17,7 +18,7 @@ const initialState = {
 }
 // crear el store con sus tres parametros
 const store = createStore(
-  (state) => state,
+  reducer,
   initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

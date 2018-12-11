@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Search from '../components/search';
- class SearchContainer extends Component {
-   // Estado por defecto en el buscador
+import { connect } from 'react-redux';
+class SearchContainer extends Component {
+  // Estado por defecto en el buscador
   state = {
     value: 'X Japan'
   }
@@ -10,8 +11,15 @@ import Search from '../components/search';
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.input.value, 'submit')
-   }
-   // funcion de acceder al elemento
+    // enviar mi acion en el buscador
+    this.props.dispatch({
+      type: 'SEARCH_VIDEO',
+      payload: {
+        query: this.input.value,
+      }
+    })
+  }
+  // funcion de acceder al elemento
   setInputRef = element => {
     this.input = element;
   }
@@ -33,4 +41,4 @@ import Search from '../components/search';
     )
   }
 }
- export default SearchContainer;
+export default connect()(SearchContainer);
