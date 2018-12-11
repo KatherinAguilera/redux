@@ -13,7 +13,8 @@ const initialState = {
   // datos de la api
   data: {
     // ...descomponer es decir obtener todos los datos que hay dentro de data
-    ...data
+    ...data,
+    search: [],
   }
 }
 // crear el store con sus tres parametros
