@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import HomePage from '../pages/containers/homepage';
 // import Playlist from './src/playlist/components/playlist';
 import data from '../api.json';
-
+// componente que permite la conexion de mi store con la ui (conexion datos)
+import  { Provider } from 'react-redux';
 import { createStore } from 'redux';
 /****REDUX ***************************************************************/
 // inicializar estado
@@ -27,4 +28,10 @@ console.log(store.getState());
 const homeContainer = document.getElementById('home-container')
 // ReactDOM.render(que voy a renderizar, donde lo haré);
 // const holaMundo = <h1>hola Estudiante!</h1>;
-render( <HomePage data={data}/>, homeContainer);
+// render( <HomePage data={data}/>, homeContainer);
+render(
+  // Provider componente de alto nivel
+  <Provider store={store}>
+    <HomePage />
+  </Provider>
+, homeContainer);

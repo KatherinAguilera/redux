@@ -7,6 +7,8 @@ import ModalContainer from '../../widgets/containers/modal'
 import Modal from '../../widgets/components/modal'
 import HandleError from '../../error/containers/handle-error';
 import VideoPlayer from '../../player/containers/video-player';
+// conectar datos a los componentes
+import { connect } from 'react-redux';
 class HomePage extends Component {
   // setear un estado
   state= {
@@ -31,7 +33,7 @@ class HomePage extends Component {
       <HomeLayout>
         <Related />
         <Categories
-          categories={this.props.data.categories}
+          categories={this.props.categories}
           handleOpenModal={this.handleOpenModal}
         />
         {
@@ -41,10 +43,9 @@ class HomePage extends Component {
             handleClick={this.handleCloseModal}
           >
             <VideoPlayer
-             autoplay
-             src={this.state.media.src}
-            title={this.state.media.title}
-
+              autoplay
+              src={this.state.media.src}
+              title={this.state.media.title}
             />
           </Modal>
         </ModalContainer>
@@ -54,5 +55,10 @@ class HomePage extends Component {
     )
   }
 }
-
-export default HomePage
+/***REDUX******/
+function mapStateToProps(state, props) {
+  return {
+    categories: state.data.categories
+  }
+}
+export default connect(mapStateToProps)(HomePage)
