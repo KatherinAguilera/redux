@@ -3,10 +3,13 @@ import { render } from 'react-dom';
 import HomePage from '../pages/containers/homepage';
 // import Playlist from './src/playlist/components/playlist';
 import data from '../api.json';
+import normalizedData from '../schemas/index';
 // componente que permite la conexion de mi store con la ui (conexion datos)
 import  { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from '../reducers/data';
+
+console.log(normalizedData);
 /****REDUX ***************************************************************/
 // inicializar estado
 const initialState = {
