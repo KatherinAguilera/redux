@@ -2,21 +2,25 @@ import React from 'react';
 import { render } from 'react-dom';
 import HomePage from '../pages/containers/homepage';
 // import Playlist from './src/playlist/components/playlist';
-import data from '../api.json';
-import normalizedData from '../schemas/index';
+// import data from '../api.json';
+import data from '../schemas/index';
 // componente que permite la conexion de mi store con la ui (conexion datos)
 import  { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from '../reducers/data';
 
-console.log(normalizedData);
+// console.log(normalizedData);
+console.log(data);
 /****REDUX ***************************************************************/
 // inicializar estado
 const initialState = {
   // datos de la api
   data: {
     // ...descomponer es decir obtener todos los datos que hay dentro de data
-    ...data,
+    // ...data,
+    // entities de los datos normalizados elementos de busqueda
+    entities: data.entities,
+    categories: data.result.categories,
   },
   search: [],
 }
@@ -27,7 +31,7 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-console.log(store.getState());
+// console.log(store.getState());
 /** **********************************************************************/
 
 const homeContainer = document.getElementById('home-container')

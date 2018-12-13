@@ -1,7 +1,8 @@
 /*componente que se exportara a index*/
 import React, { Component } from 'react';
 // Importo media para ser utilizado
-import Media from './media.js';
+// import Media from './media.js';
+import MediaContainer from '../containers/media';
 import './playlist.css';
 // 1. Declaro Playlist
 function Playlist(props) {
@@ -9,8 +10,8 @@ function Playlist(props) {
   return (
     <div className="Playlist">
       {
-        props.playlist.map((item) => {
-          return <Media openModal={props.handleOpenModal} {...item} key={item.id} />
+        props.playlist.map((mediaId) => {
+          return <MediaContainer openModal={props.handleOpenModal} id={mediaId} key={mediaId} />
         })
       }
     </div>

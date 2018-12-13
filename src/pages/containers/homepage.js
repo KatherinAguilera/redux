@@ -59,8 +59,13 @@ class HomePage extends Component {
 }
 /***REDUX******/
 function mapStateToProps(state, props) {
+  // lista de id que tiene las categorias
+  const categories = state.data.categories.map((categoryId) => {
+    return state.data.entities.categories[categoryId]
+  })
   return {
-    categories: state.data.categories,
+    // categories: state.data.categories,
+    categories: categories,
     search: state.search
   }
 }
