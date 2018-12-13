@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Media from '../components/media';
 import { connect } from 'react-redux';
+
+// pedir los datos de media, titulo autor img
  class MediaContainer extends Component {
   render(){
     return <Media {...this.props.data} />

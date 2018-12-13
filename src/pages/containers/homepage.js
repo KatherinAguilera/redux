@@ -66,7 +66,8 @@ function mapStateToProps(state, props) {
   return {
     // categories: state.data.categories,
     categories: categories,
-    search: state.search
+    // search: state.search
+    search: state.data.search
   }
 }
 export default connect(mapStateToProps)(HomePage)
