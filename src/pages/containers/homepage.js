@@ -60,14 +60,18 @@ class HomePage extends Component {
 /***REDUX******/
 function mapStateToProps(state, props) {
   // lista de id que tiene las categorias
-  const categories = state.data.categories.map((categoryId) => {
-    return state.data.entities.categories[categoryId]
+  // const categories = state.data.categories.map((categoryId) => {
+  //   return state.data.entities.categories[categoryId]
+  const categories = state.get('data').get('categories').map((categoryId) => {
+    // return state.get('data').get('entities').get('categories').get(categoryId)
+    return state.get('data').get('entities').get('categories').get(categoryId.toString())
   })
   return {
     // categories: state.data.categories,
     categories: categories,
     // search: state.search
-    search: state.data.search
+    // search: state.data.search
+    search: state.get('data').get('search')
   }
 }
 export default connect(mapStateToProps)(HomePage)

@@ -1,8 +1,10 @@
 //reducer modal
-const initialState = {
+import { fromJS } from 'immutable';
+const initialState = fromJS({
+// const initialState = {
   visibility: false,
   mediaId: null,
-}
+})
 function modal(state = initialState, action) {
   //evaluar action // modal si esta abierto o cerrado
   switch(action.type) {
@@ -14,4 +16,4 @@ function modal(state = initialState, action) {
       return state
   }
 }
- export default modal;
+export default modal;

@@ -10,7 +10,26 @@ function Categories(props) {
   return (
     <div className="Categories">
     <Search />
-    {/* mostrar busqueda en la ui */}
+    {
+        props.search.map((item) => {
+          return <Media {...item.toJS()} key={item.get('id')}/>
+        })
+      }
+      {
+        props.categories.map((item) =>{
+          return (
+            <Category
+              key={item.get('id')}
+              {...item.toJS()}
+              handleOpenModal={props.handleOpenModal}
+            />
+          )
+        })
+      }
+    </div>
+  )
+}
+    {/* mostrar busqueda en la ui
     <div className="Media-found">
     {
       props.search.length > 0 &&
@@ -35,7 +54,7 @@ function Categories(props) {
         })
       }
     </div>
-  )
-}
+//   )
+// } */}
 
 export default Categories
