@@ -13,6 +13,7 @@ import reducer from '../reducers/index';
 import { Map as map } from 'immutable';
 import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 // console.log(normalizedData);
 // console.log(data);
 /****REDUX ***************************************************************/
@@ -44,9 +45,10 @@ const store = createStore(
   composeWithDevTools(
     applyMiddleware(
       logger,
-      logger_
-    )
+      logger_,
+      thunk
   )
+ )
 );
 
 // console.log(store.getState());

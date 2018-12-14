@@ -1,7 +1,8 @@
 import {
   CLOSE_MODAL,
   OPEN_MODAL,
-  SEARCH_ENTITIES
+  SEARCH_ENTITIES,
+  SEARCH_ASYNC_ENTITIES
 } from '../actions-types/index';
 
 // creadores de acciones
@@ -24,5 +25,15 @@ export function searchEntities(query) {
     payload: {
       query,
     }
+  }
+}
+export function searchAsyncEntities(query) {
+  return (dispatch) => {
+    // fetch().then(()=>)
+    // XHR
+    // trae
+    setTimeout(()=> {
+      dispatch(searchEntities(query))
+    }, 5000)
   }
 }

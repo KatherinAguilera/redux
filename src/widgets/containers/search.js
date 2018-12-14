@@ -14,7 +14,10 @@ class SearchContainer extends Component {
   handleSubmit = event => {
     event.preventDefault();
     // this.props.dispatch(searchEntities(this.input.value))
-    this.props.actions.searchEntities(this.input.value)
+    // this.props.actions.searchEntities(this.input.value)
+    this.props.actions.searchAsyncEntities(this.input.value)
+    // fetch(`http://miapi.com/buscar/${this.input.value}`).then((data)=>{
+    // })
   }
   // funcion de acceder al elemento
   setInputRef = element => {
