@@ -9,6 +9,7 @@ import HandleError from '../../error/containers/handle-error';
 import VideoPlayer from '../../player/containers/video-player';
 // conectar datos a los componentes
 import { connect } from 'react-redux';
+import { List as list } from 'immutable';
 class HomePage extends Component {
   // setear un estado
   state= {
@@ -66,12 +67,21 @@ function mapStateToProps(state, props) {
     // return state.get('data').get('entities').get('categories').get(categoryId)
     return state.get('data').get('entities').get('categories').get(categoryId.toString())
   })
+  let searchResults = list()
+  const search = state.get('data').get('search');
+  if (search) {
+    const mediaList = state.get('data').get('entities').get('media');
+    searchResults = mediaList.filter((item) => (
+      item.get('author').toLowerCase().includes(search.toLowerCase())
+    )).toList();
+  }
   return {
     // categories: state.data.categories,
     categories: categories,
     // search: state.search
     // search: state.data.search
-    search: state.get('data').get('search')
+    // search: state.get('data').get('search')
+    search: searchResults
   }
 }
 export default connect(mapStateToProps)(HomePage)

@@ -10,11 +10,13 @@ function Categories(props) {
   return (
     <div className="Categories">
     <Search />
-    {
+    <div className="Media-found">
+      {
         props.search.map((item) => {
           return <Media {...item.toJS()} key={item.get('id')}/>
         })
       }
+      </div>
       {
         props.categories.map((item) =>{
           return (
@@ -24,8 +26,8 @@ function Categories(props) {
               handleOpenModal={props.handleOpenModal}
             />
           )
-        })
-      }
+          })
+        }
     </div>
   )
 }
