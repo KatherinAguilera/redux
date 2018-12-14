@@ -11,6 +11,8 @@ import VideoPlayer from '../../player/containers/video-player';
 import { connect } from 'react-redux';
 import { List as list } from 'immutable';
 import { openModal, closeModal } from '../../actions/index';
+import * as actions from '../../actions/index';
+import { bindActionCreators } from 'redux';
 class HomePage extends Component {
   // // setear un estado
   // state= {
@@ -22,10 +24,10 @@ class HomePage extends Component {
   //     media
   //   })
   handleOpenModal = (id) => {
-    this.props.dispatch(openModal(id))
+    this.props.actions.openModal(id)
   }
   handleCloseModal = (event) => {
-    this.props.dispatch(closeModal())
+    this.props.actions.closeModal()
   }
 
   render() {
@@ -87,4 +89,11 @@ function mapStateToProps(state, props) {
     modal: state.get('modal'),
   }
 }
-export default connect(mapStateToProps)(HomePage)
+function mapDispatchToProps(dispatch) {
+  return {
+    // actions: bindActionCreators(acciones, dispatch)
+    actions: bindActionCreators(actions, dispatch)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
+// export default connect(mapStateToProps)(HomePage)
