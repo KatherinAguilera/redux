@@ -6,7 +6,8 @@ import HomePage from '../pages/containers/homepage';
 // import data from '../schemas/index';
 // componente que permite la conexion de mi store con la ui (conexion datos)
 import  { Provider } from 'react-redux';
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 // import reducer from '../reducers/data';
 import reducer from '../reducers/index';
 import { Map as map } from 'immutable';
@@ -25,11 +26,20 @@ import { Map as map } from 'immutable';
 //   },
 //   search: [],
 // }
+const logger = ({getState, dispatch }) => next => action => {
+  console.log('este es mi viejo estado', getState().toJS())
+  console.log('vamos a enviar está acción', action);
+  const value = next(action)
+  console.log('este es mi nuevo estado', getState().toJS())
+  return value
+}
+
 // crear el store con sus tres parametros
 const store = createStore(
   reducer,
   map(),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  applyMiddleware(logger)
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 // console.log(store.getState());
