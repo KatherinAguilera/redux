@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import Media from '../components/media';
 import { connect } from 'react-redux';
-
+import { openModal } from '../../actions/index';
 // pedir los datos de media, titulo autor img
  class MediaContainer extends Component {
   openModal = (id) => {
-    this.props.dispatch({
-      type: 'OPEN_MODAL',
-      payload: {
-        mediaId: id
-      }
-    })
+    this.props.dispatch(openModal(id))
   }
   render(){
     // return <Media {...this.props.data} />
