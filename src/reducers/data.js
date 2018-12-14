@@ -22,10 +22,11 @@ function data(state = initialState, action) {
       //   ...state,
       //   search: results
       // }
+      // devolver un nuevo mapa de inmutable
       return state.set('search', action.payload.query)
     }
     default:
       return state
   }
 }
- export default data;
+export default data;
