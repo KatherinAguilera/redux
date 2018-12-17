@@ -31,10 +31,10 @@ class Media extends PureComponent {
           />
           {/* {this.props.title} es el valor dinamico que se le pasa
            con this.props.propiedad de <Media /> del index.js */}
+        </div>
           <h3 className="Media-title">{this.props.title}</h3>
           <p className="Media-author">{this.props.author}</p>
           <span className= "Media-type"><strong>Esto es: </strong>{this.props.type}</span>
-        </div>
       </div> 
     )
   }

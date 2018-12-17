@@ -41,6 +41,7 @@ class HomePage extends Component {
           handleOpenModal={this.handleOpenModal}
           // agregar propiedades
           search={this.props.search}
+          isLoading={this.props.isLoading}
         />
         {
         this.props.modal.get('visibility') &&
@@ -87,6 +88,7 @@ function mapStateToProps(state, props) {
     // search: state.get('data').get('search')
     search: searchResults,
     modal: state.get('modal'),
+    isLoading: state.get('isLoading').get('active')
   }
 }
 function mapDispatchToProps(dispatch) {
