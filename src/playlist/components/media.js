@@ -34,8 +34,10 @@ class Media extends PureComponent {
         </div>
           <h3 className="Media-title">{this.props.title}</h3>
           <p className="Media-author">{this.props.author}</p>
-          <span className= "Media-type"><strong>Esto es: </strong>{this.props.type}</span>
-      </div> 
+          <span className= "Media-type">
+            <strong>Esto es: </strong>{this.props.type}
+          </span>
+        </div> 
     )
   }
 }

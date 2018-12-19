@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 class SearchContainer extends Component {
   // Estado por defecto en el buscador
   state = {
-    value: 'X Japan'
+    value: ''
   }
   //  evitar que recargue la pagina
 

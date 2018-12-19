@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // CreatePortal viene de react dom para componentes fuera del contenedor principal
 import { createPortal } from 'react-dom';
- class ModalContainer extends Component {
+class ModalContainer extends Component {
   render() {
     return createPortal(
       this.props.children,
@@ -9,4 +9,4 @@ import { createPortal } from 'react-dom';
     )
   }
 }
- export default ModalContainer;
+export default ModalContainer;

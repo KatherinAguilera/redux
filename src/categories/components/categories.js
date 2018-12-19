@@ -4,24 +4,27 @@ import './categories.css';
 import Search from '../../widgets/containers/search';
 import Media from '../../playlist/components/media'
 import '../../playlist/components/media.css'
+import Loader from './../../widgets/components/loader';
 
 
 function Categories(props) {
   return (
     <div className="Categories">
     <Search />
-    <div className="Media-found">
     {
         props.isLoading &&
-        <p>Buscando tus videos favoritos...</p>
-      }
+        <Loader />
+    }
+    <section className="Container-Media">
+      <div className="Media-found">
       {
-        props.search.map((item) => {
+          props.search.map((item) => {
           {/* return <Media {...item.toJS()} key={item.get('id')}/> */}
           return <Media openModal={props.handleOpenModal} {...item.toJS()} key={item.get('id')}/>
         })
       }
       </div>
+    </section>
       {
         props.categories.map((item) =>{
           return (

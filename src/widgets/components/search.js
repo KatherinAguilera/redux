@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import './search.css';
 // function Search(props) {
 //   return (
@@ -21,6 +21,18 @@ import './search.css';
       // valor por defecto con react se hace con defaultValue pero en este caso no funcionaria
       value={props.value}
     />
+    <button
+      ref={props.setRef}
+      type="text"
+      placeholder="Busca tu video favorito"
+      className="Search-button"
+      name="search"
+      onChange={props.handleChange}
+      // valor por defecto con react se hace con defaultValue pero en este caso no funcionaria
+      value={props.value}
+      >
+      Buscar
+    </button>
   </form>
 )
  export default Search
